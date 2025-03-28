@@ -1,0 +1,212 @@
+{
+    "Cat-Cow Stretch": {
+        "advantages": [
+            "Improves Spine Flexibility : Enhances spinal mobility and relieves stiffness.",
+            "Strengthens Core & Back Muscles : Engages abdominal and lower back muscles.",
+            "Promotes Relaxation : Helps reduce stress and tension in the body.",
+            "Enhances Posture : Encourages proper spinal alignment."
+        ],
+        "risks": [
+            "Neck Strain : Overarching the neck can cause discomfort or injury.",
+            "Lower Back Pain : Overextending the lower back may lead to strain.",
+            "Wrist or Knee Pressure : Poor alignment can cause joint discomfort.",
+            "Breathing Issues : Incorrect breathing may reduce the pose’s benefits."
+        ]
+    },
+    "Cow Pose": {
+        "advantages": [
+            "Improves Spinal Flexibility : Stretches and mobilizes the spine.",
+            "Opens the Chest : Enhances lung capacity and breathing.",
+            "Relieves Lower Back Tension : Eases tightness in the lumbar region.",
+            "Boosts Digestion : Gentle stretch aids in digestive organ stimulation."
+        ],
+        "risks": [
+            "Lower Back Strain : Overarching may cause discomfort or injury.",
+            "Neck Pain : Overextending the neck can lead to strain.",
+            "Wrist or Knee Pressure : Incorrect hand or knee placement can cause joint stress.",
+            "Breathing Disruption : Shallow breathing reduces relaxation benefits."
+        ]
+    },
+    "Crane Pose": {
+        "advantages": [
+            "Builds Upper Body Strength : Strengthens arms, shoulders, and wrists.",
+            "Enhances Core Stability : Engages abdominal muscles for balance.",
+            "Improves Focus & Concentration : Requires mental clarity and coordination.",
+            "Boosts Wrist & Hand Flexibility : Strengthens small stabilizing muscles."
+        ],
+        "risks": [
+            "Wrist & Shoulder Strain : Incorrect hand placement can cause injury.",
+            "Face or Head Injury : Loss of balance may lead to falls.",
+            "Lower Back Stress : Poor core engagement can lead to strain.",
+            "Elbow Overloading : Excessive weight on elbows may cause pain or discomfort."
+        ]
+    },
+    "Eight Limbed Pose": {
+        "advantages": [
+            "Strengthens Upper Body : Engages arms, shoulders , and chest muscles.",
+            "Improves Core Stability : Activates the abdominal and lower back muscles.",
+            "Prepares for Chaturanga : Helps build strength for more advanced poses.",
+            "Enhances Flexibility : Opens the chest and stretches the spine"
+        ],
+        "risks": [
+            "Wrist & Shoulder Strain : Poor hand placement can lead to joint pain.",
+            "Lower Back Discomfort : Dropping the belly too much may cause strain.",
+            "Neck Pressure : Improper alignment may put excessive stress on the neck.",
+            "Elbow Overload : Incorrect arm positioning can lead to elbow pain."
+        ]
+    },
+    "Frog Pose": {
+        "advantages": [
+            "Improves Hip Flexibility : Opens the hips and increases mobility.",
+            "Relieves Lower Back Tension : Stretches inner thighs and groin, reducing stiffness.",
+            "Enhances Blood Circulation : Boosts circulation in the pelvic region.",
+            "Aids Digestion : Stimulates abdominal organs and improves digestion."
+        ],
+        "risks": [
+            "Knee Strain : Can put excessive pressure on the knees if done incorrectly.",
+            "Hip Overstretching : Overstretching can lead to groin or hip injuries.",
+            "Lower Back Pain : Poor form may cause strain in the lower back.",
+            "Ankle Discomfort : Incorrect foot positioning can stress the ankles."
+        ]
+    },
+    "Half Frog Pose": {
+        "advantages": [
+            "Improves Flexibility : Stretches the quadriceps, hip flexors, and chest.",
+            "Enhances Spinal Mobility : Opens the thoracic spine and shoulders.",
+            "Stimulates Digestion : Aids in digestion by stretching abdominal muscles.",
+            "Relieves Tension : Helps reduce stress and fatigue"
+        ],
+        "risks": [
+            "Knee Strain : Incorrect alignment can cause knee pain or injury.",
+            "Lower Back Pressure : Overarching the back may lead to lower back discomfort.",
+            "Shoulder Stress : Poor posture can strain the shoulders and wrists.",
+            "Hip Discomfort : Tight hips may lead to excessive strain in the hip joint."
+        ]
+    },
+    "Half Lord of the Fishes Pose": {
+        "advantages": [
+            "Spinal Flexibility : Enhances spinal mobility and posture.",
+            "Digestive Aid : Stimulates digestion and relieves bloating.",
+            "Detoxification : Helps cleanse internal organs by twisting the torso.",
+            "Back Pain Relief : Reduces tension in the lower back."
+        ],
+        "risks": [
+            "Spinal Strain : Over-rotating can cause back or disc injuries.",
+            "Knee Injury : Poor alignment may strain the knee joints.",
+            "Neck Tension : Forcing the twist can cause stiffness or pain in the neck.",
+            "Hip Discomfort : Incorrect positioning may lead to hip misalignment."
+        ]
+    },
+    "Half Moon Pose": {
+        "advantages": [
+            "Improves Balance: Strengthens the legs and core, enhancing stability.",
+            "Strengthens Legs & Core: Builds strength in the legs, hips, and core muscles.",
+            "Opens Hips & Chest: Stretches the hips, groin, and chest, improving flexibility.",
+            "Stimulates Digestive System: Activates the internal organs, promoting digestion."
+        ],
+        "risks": [
+            "Strained Lower Back: Incorrect alignment can strain the lower back.",
+            "Knee Injuries: Misalignment of the supporting knee can lead to injury.",
+            "Wrist Strain: Bearing too much weight on the wrist may cause discomfort or strain.",
+            "Neck Strain: Incorrect head position can lead to neck tension."
+        ]
+    },
+    "Handstand Pose": {
+        "advantages": [
+            "Strengthens Core and Upper Body: Builds strength in shoulders, arms, and core muscles.",
+            "Improves Balance and Coordination: Enhances body awareness and coordination.",
+            "Boosts Circulation: Inversion promotes better blood flow to the brain.",
+            "Improves Mental Focus: Requires concentration, helping with mental clarity."
+        ],
+        "risks": [
+            "Risk of Injury: Incorrect technique can strain wrists, shoulders, and neck.",
+            "Neck and Spine Stress: If done improperly, it can cause neck or spinal compression.",
+            "Wrist Strain: Poor alignment can lead to wrist discomfort or injury.",
+            "Balance Challenges: Risk of falling if not properly supported or practiced."
+        ]
+    },
+    "Happy Baby Pose": {
+        "advantages": [
+            "Stretches the hips and lower back : Helps release tension and improves flexibility.",
+            "Promotes relaxation : Calms the nervous system and reduces stress.",
+            "Improves digestion : Stimulates the abdominal organs and encourages circulation.",
+            "Relieves tension : Helps alleviate discomfort in the lower back and legs."
+        ],
+        "risks": [
+            "Strain on the knees : Incorrect alignment can lead to knee discomfort or injury.",
+            "Lower back discomfort : Arching the back too much can lead to strain.",
+            "Hip overstretching : Pushing the knees too far can cause strain in the hips or groin.",
+            "Neck strain : Tensing the neck while holding the pose can cause discomfort or injury."
+        ]
+    },
+    "Low Lunge Pose": {
+        "advantages": [
+            "Stretches Hip Flexors: Helps open and stretch the hips, reducing tension.",
+            "Strengthens Legs: Builds strength in the thighs, calves and glutes.",
+            "Improves Balance: Enhances stability and coordination by engaging the core.",
+            "Boosts Flexibility: Opens up the chest and shoulders, improving overall flexibility."
+        ],
+        "risks": [
+            "Knee Strain: Incorrect knee alignment can strain the front knee or lead to injury.",
+            "Back Strain: Overarching the back can cause discomfort or pain in the lower back.",
+            "Hip Discomfort: Lack of proper alignment can lead to strain in the hips or groin.",
+            "Wrist Pressure: Incorrect hand placement may put unnecessary pressure on the wrists."
+        ]
+    },
+    "Shoulder Pressing Pose": {
+        "advantages": [
+            "Strengthens shoulder, arm, and upper chest muscles.",
+            "Improves posture by engaging core and stabilizing muscles.",
+            "Enhances shoulder mobility and flexibility.",
+            "Builds overall upper body endurance and muscle tone."
+        ],
+        "risks": [
+            "Strain on the shoulder joints, potentially causing injury.",
+            "Increased risk of lower back strain if posture is not aligned.",
+            "Excessive pressure on wrists and elbows can lead to joint discomfort.",
+            "Risk of muscle imbalances from improper technique, leading to long-term issues."
+        ]
+    },
+    "Sleeping Vishnu Pose": {
+        "advantages": [
+            " Improves Core Strength: Engages the core muscles, helping to strengthen the abdomen and lower back.",
+            "Promotes Flexibility: Stretches the hips, groin, and thighs, increasing flexibility.",
+            "Relieves Stress: Calms the nervous system, promoting relaxation and stress relief.",
+            "Enhances Balance: Improves overall body balance and stability."
+        ],
+        "risks": [
+            "Lower Back Strain: Poor alignment may cause strain in the lower back.",
+            "Neck Pain: Holding the neck incorrectly can lead to tension or pain.",
+            "Hip Discomfort: Incorrect positioning of the legs can cause discomfort in the hips.",
+            "Knee Stress: If the knee isn't properly aligned, it may lead to stress or discomfort in the joint."
+        ]
+    },
+    "Upward Facing Dog Pose": {
+        "advantages": [
+            "Strengthens the Spine: Enhances flexibility and strength in the back, shoulders, and arms.",
+            "Opens the Chest: Stretches the chest and lungs, promoting better respiratory function.",
+            "Improves Posture: Helps to correct posture by engaging the spine and lengthening the torso.",
+            "Stimulates Energy: Energizes the body, increases blood circulation, and reduces fatigue."
+        ],
+        "risks": [
+            "Back Strain: Over-arching the back can lead to strain or injury, especially in the lower back.",
+            "Shoulder Injury: Incorrect alignment can stress the shoulders, leading to discomfort or injury.",
+            "Neck Strain: Dropping the head or craning the neck can cause strain on the cervical spine.",
+            "Wrist Pain: Improper hand placement or excessive pressure on the wrists can lead to discomfort or injury."
+        ]
+    },
+    "Wild Thing Pose": {
+        "advantages": [
+            "Improves Flexibility: Stretches the spine, hips, and chest, enhancing flexibility.",
+            "Builds Strength: Strengthens the arms, core, and legs, particularly the glutes and shoulders.",
+            "Boosts Energy: Opens up the chest and lungs, increasing energy and vitality.",
+            "Improves Balance: Encourages stability and balance through dynamic movement."
+        ],
+        "risks": [
+            "Spine Injury: Incorrect backbend can strain the lower back or lead to injury.",
+            "Shoulder Strain: Improper alignment can overload the shoulders and wrists.",
+            "Neck Injury: If the neck is not supported, it can cause discomfort or injury.",
+            "Joint Pressure: Poor form can cause excess pressure on the hips or knees."
+        ]
+    }
+}
