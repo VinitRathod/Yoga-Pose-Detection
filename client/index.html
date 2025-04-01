@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Yoga Pose Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-container {
+            display: none;
+            width: 100%;
+            max-width: 700px;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-image {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand"
+               href="#">Yoga Pose Detection</a>
+        </div>
+    </nav>
+
+    <!-- Centered Form -->
+    <div class="container">
+        <div class="form-container">
+            <h4 class="text-center mb-4">Upload Your File</h4>
+            <form action="#"
+                  method="POST"
+                  enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="category"
+                           class="form-label">Select Level</label>
+                    <select class="form-select"
+                            id="category"
+                            name="category">
+                        <option value=""
+                                disabled
+                                selected>Select an option</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="file"
+                           class="form-label">Upload File</label>
+                    <input class="form-control"
+                           type="file"
+                           id="file"
+                           name="file">
+                </div>
+                <div class="d-grid">
+                    <button type="submit"
+                            class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results"
+             class="result-container">
+            <h4 class="text-center mb-3">Pose Detection Results</h4>
+            <img id="poseImage"
+                 class="result-image mb-3"
+                 src=""
+                 alt="Uploaded Pose">
+            <p><strong>Predicted Pose:</strong> <span id="predictedPose"></span></p>
+
+            <h5>Feedback</h5>
+            <ul id="advantages"
+                class="list-group mb-3"></ul>
+
+            <h5>Risks</h5>
+            <ul id="risks"
+                class="list-group mb-3"></ul>
+
+            <h5>Corrections</h5>
+            <ul id="corrections"
+                class="list-group"></ul>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                const category = document.getElementById('category').value;
+                const fileInput = document.getElementById('file');
+                const file = fileInput.files[0];
+
+                if (!category || !file) {
+                    alert('Please select a category and upload a file.');
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('level', category);
+                formData.append('image', file);
+
+                fetch('/get_pose', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.status == 200) {
+                            displayResults(data);
+                            // alert('File uploaded successfully!');
+                        } else {
+                            alert('Error uploading file: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while uploading the file.');
+                    });
+            });
+
+            function displayResults(data) {
+                document.getElementById('results').style.display = 'block';
+
+                // Set image
+                document.getElementById('poseImage').src = data.correctionsFeedback.imagePath;
+
+                // Set predicted pose
+                document.getElementById('predictedPose').textContent = data.predictedPose;
+
+                // Set advantages
+                const advantagesList = document.getElementById('advantages');
+                advantagesList.innerHTML = "";
+                data.feedback.advantages.forEach(item => {
+                    const li = document.createElement('li');
+                    li.classList.add('list-group-item');
+                    li.textContent = item;
+                    advantagesList.appendChild(li);
+                });
+
+                // Set risks
+                const risksList = document.getElementById('risks');
+                risksList.innerHTML = "";
+                data.feedback.risks.forEach(item => {
+                    const li = document.createElement('li');
+                    li.classList.add('list-group-item', 'list-group-item-danger');
+                    li.textContent = item;
+                    risksList.appendChild(li);
+                });
+
+                // Set corrections
+                const correctionsList = document.getElementById('corrections');
+                correctionsList.innerHTML = "";
+                data.correctionsFeedback.feedback.forEach(item => {
+                    const li = document.createElement('li');
+                    li.classList.add('list-group-item', 'list-group-item-warning');
+                    li.textContent = item;
+                    correctionsList.appendChild(li);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

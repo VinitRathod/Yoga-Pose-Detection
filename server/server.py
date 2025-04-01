@@ -1,15 +1,15 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, send_from_directory
 import os
 from werkzeug.utils import secure_filename
 import util
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder=os.path.abspath("../client"))
 app.config['UPLOAD_PATH'] = 'images'
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
 
-@app.route('/hello', methods=['GET'])
+@app.route('/')
 def hello():
-    return "Hello World"
+    return render_template('index.html')
 
 # def read_json():
 #     response = jsonify({
@@ -41,7 +41,8 @@ def get_pose():
         imagePath = os.path.join(app.config['UPLOAD_PATH'], imageName)
         image.save(imagePath)
         pose = util.posePrediction(imagePath, imageName, level)
-        return pose
+
+        return pose, 200
     else:
         return "Image not found", 400
     
@@ -56,8 +57,12 @@ def get_pose():
     #     'feedback': util.get_pose_feedback(pose)
     # })
 
+@app.route('/keypointsImages/<path:filename>')
+def serve_image(filename):
+    return send_from_directory('keypointsImages', filename)
+
 if __name__ == '__main__':
     print("Server is Running")
     # print(os.path.join(app.config['UPLOAD_PATH']))
     util.load_saved_artifacts()
-    app.run()
+    app.run(debug=True)

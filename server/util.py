@@ -225,12 +225,14 @@ def visualize_pose_static(image_path,imageName, keypoints, reference_keypoints=N
 
     # cv2_imshow(image)  # Display in Colab
     filepath = os.path.join('keypointsImages', imageName)
+    absolute_path = os.path.abspath(filepath)
+    print(f"Image saved at: {absolute_path}")
     cv2.imwrite(filepath, image)  # Save image
 
     # Print corrections if needed
     if feedback:
         print("\nCorrections Needed:")
-        return {"feedback": feedback,'imagePath':image_path}
+        return {"feedback": feedback,'imagePath':filepath}
         # for msg in feedback:
         #     print(msg)
 
@@ -280,7 +282,7 @@ def posePrediction(imagePath,imageName,level):
 
     print("Advantages:", "\n".join(feedback["advantages"]))
     print("Injury Risks:", "\n".join(feedback["risks"]))
-    return {'feedback':feedback,'correctionsFeedback':correctionsFeedback,'predictedPose':predicted_pose}
+    return {'feedback':feedback,'correctionsFeedback':correctionsFeedback,'predictedPose':predicted_pose,'status':200}
 
 if __name__ == '__main__':
     load_saved_artifacts()
