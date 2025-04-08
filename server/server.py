@@ -5,7 +5,7 @@ import util
 
 app = Flask(__name__,template_folder=os.path.abspath("../client"))
 app.config['UPLOAD_PATH'] = 'images'
-app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
+app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif','.jpeg']
 
 @app.route('/')
 def hello():
