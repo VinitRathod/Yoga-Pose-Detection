@@ -89,6 +89,53 @@ def adjust_tolerance_levels(level="Advanced"):
     return {joint: int(value * scale_factor) for joint, value in default_tolerance_ranges.items()}
 
 
+# def provide_correction_feedback(detected_keypoints, reference_keypoints, predicted_pose_name, skill_level="Intermediate"):
+#     feedback = []
+
+#     # Critical joints (shoulder, elbow, knee, ankle)
+#     critical_joints = [(5, 7, 9), (6, 8, 10), (11, 13, 15), (12, 14, 16)]
+
+
+#     # Get the overall tolerance level based on skill level
+#     default_tolerance = adjust_tolerance_levels(skill_level) # Default to "Intermediate"
+
+#     # Extract reference keypoints for the predicted pose
+#     handstand_reference = next(
+#         (ref["keypoints"][0][0] for ref in reference_keypoints if ref["pose"] == predicted_pose_name),
+#         None
+#     )
+
+#     if handstand_reference is None:
+#         return ["Error: No reference keypoints found for the predicted pose."]
+
+#     # Ensure valid keypoint structure
+#     if len(detected_keypoints) < 17 or len(handstand_reference) < 17:
+#         return ["Error: Invalid keypoint data."]
+
+#     for joints in critical_joints:
+#         try:
+#             detected_angle = calculate_angle(
+#                 detected_keypoints[joints[0]], detected_keypoints[joints[1]], detected_keypoints[joints[2]]
+#             )
+#             reference_angle = calculate_angle(
+#                 handstand_reference[joints[0]], handstand_reference[joints[1]], handstand_reference[joints[2]]
+#             )
+
+#             # Get custom tolerance for this joint or use default
+#             joint_name = keypoint_names_dir[joints[1]]
+#             tolerance = adjust_tolerance_levels(skill_level).get(joint_name, default_tolerance[joint_name])
+
+#             # Check if the angle is within the allowed range
+#             if not is_within_tolerance(reference_angle, detected_angle, tolerance):
+#                 feedback.append(
+#                     f"Adjust angle at {joint_name}: Expected {reference_angle:.2f}°, got {detected_angle:.2f}° (Tolerance: ±{tolerance}°)."
+#                 )
+
+#         except (IndexError, KeyError, TypeError) as e:
+#             return [f"Error: Missing or incorrect keypoints for joints {joints}. Exception: {str(e)}"]
+
+#     return feedback if feedback else ["Pose is correct!"]
+
 def provide_correction_feedback(detected_keypoints, reference_keypoints, predicted_pose_name, skill_level="Intermediate"):
     feedback = []
 
@@ -105,21 +152,39 @@ def provide_correction_feedback(detected_keypoints, reference_keypoints, predict
         None
     )
 
-    if handstand_reference is None:
+
+    # Get all matching references
+    matching_references = [ref for ref in reference_keypoints if ref["pose"] == predicted_pose_name]
+
+    # Get all keypoints from matching references
+    all_keypoints = [ref["keypoints"] for ref in matching_references]
+
+    if all_keypoints is None:
         return ["Error: No reference keypoints found for the predicted pose."]
 
     # Ensure valid keypoint structure
-    if len(detected_keypoints) < 17 or len(handstand_reference) < 17:
+    if len(detected_keypoints) < 17:
         return ["Error: Invalid keypoint data."]
 
     for joints in critical_joints:
         try:
+
+            # Calculate the angle between the joints
             detected_angle = calculate_angle(
                 detected_keypoints[joints[0]], detected_keypoints[joints[1]], detected_keypoints[joints[2]]
             )
-            reference_angle = calculate_angle(
-                handstand_reference[joints[0]], handstand_reference[joints[1]], handstand_reference[joints[2]]
-            )
+
+            # Calculate reference angles from ALL matching poses and average them
+            reference_angles = []
+            for ref in all_keypoints:
+              if len(ref[0][0]) < 17:
+                 return ["Error: Invalid Reference keypoint data."]
+              ref_kps=ref[0][0]
+              angle = calculate_angle(ref_kps[joints[0]], ref_kps[joints[1]], ref_kps[joints[2]])
+
+            reference_angles.append(angle)
+
+            reference_angle = sum(reference_angles) / len(reference_angles)  # Mean angle
 
             # Get custom tolerance for this joint or use default
             joint_name = keypoint_names_dir[joints[1]]
@@ -135,6 +200,7 @@ def provide_correction_feedback(detected_keypoints, reference_keypoints, predict
             return [f"Error: Missing or incorrect keypoints for joints {joints}. Exception: {str(e)}"]
 
     return feedback if feedback else ["Pose is correct!"]
+
 
 # Function to determine color based on deviation
 def get_color_based_on_tolerance(expected, actual, tolerance):
